@@ -1,6 +1,5 @@
 package br.com.curso.controller.docente;
 
-import br.com.curso.dao.DocenteDAO;
 import br.com.curso.model.Docente;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,42 +9,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "DocenteCadastrar", urlPatterns = {"/DocenteCadastrar"})
-public class DocenteCadastrar extends HttpServlet {
+@WebServlet(name = "DocenteNovo", urlPatterns = {"/DocenteNovo"})
+public class DocenteNovo extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=iso-8859-1");   
-            String mensagem = null;
-        try {
-            int idPessoa = Integer.parseInt(request.getParameter("iddocente"));
-            int idDocente = Integer.parseInt(request.getParameter("iddocente"));
-            String nomePessoa = request.getParameter("nomepessoa");
-            String contato = request.getParameter("contato");
-            
-            /*
-               int numeroMatricula =  Integer.parseInt(request.getParameter("numeromatricula"));
-            String situacao = request.getParameter("situacao");
-            */
-               int numeroMatricula =  231233;
-            String situacao = "A";
-         
-            
-            Docente oDocente = new Docente(idDocente, numeroMatricula, situacao, idPessoa, nomePessoa, contato);
-            //generic dao falta
-            DocenteDAO dao = new DocenteDAO();
-            
-            if(dao.cadastrar(oDocente)){
-                mensagem = "Docent cadastrado com sucesso";
-            }else{
-                mensagem = "Problemas ao cadastrar Dodente Verifique os dados informados e tente novamente";
-            }
-             request.setAttribute("mensagem", mensagem);
-            response.sendRedirect("DocenteListar");
-        } catch (Exception e) {
-            System.out.println("Problemas na servelet de cadsatrar docente"+e.getMessage());
-            e.printStackTrace();
-        }
+        response.setContentType("text/html;charset=iso-8859-1");
+        Docente oDocente = new Docente();
+        request.setAttribute("docente", oDocente);
+        request.getRequestDispatcher("/cadastros/docente/docenteCadastrar.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
