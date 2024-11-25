@@ -35,7 +35,7 @@ public class PessoaDAO {
             ResultSet rs = null;
             Integer idPessoa = null;
             
-            String sql = "insert into pessoa(nomePessoa,contato) values (?,?)";
+            String sql = "insert into pessoa(nomePessoa,contato) values (?,?)  RETURNING idpessoa";
 
             try {
                 stmt = conexao.prepareStatement(sql);

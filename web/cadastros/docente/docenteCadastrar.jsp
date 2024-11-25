@@ -29,7 +29,7 @@
                 </tr>
                 <tr>
                     <td>numeroMaticula</td>
-                    <td><input type="text" name="numeromaticula" id="numeromatricula" value="${docente.numeroMatricula}" size="50" maxlength="50"/></td>
+                    <td><input type="text" name="numeromatricula" id="numeromatricula" value="${docente.numeroMatricula}" size="50" maxlength="50"/></td>
                 </tr>
                 <tr>
                     <td>situacao</td>

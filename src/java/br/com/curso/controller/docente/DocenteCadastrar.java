@@ -22,13 +22,14 @@ public class DocenteCadastrar extends HttpServlet {
             int idDocente = Integer.parseInt(request.getParameter("iddocente"));
             String nomePessoa = request.getParameter("nomepessoa");
             String contato = request.getParameter("contato");
+            int numeroMatricula =  Integer.parseInt(request.getParameter("numeromatricula"));
+            String situacao = request.getParameter("situacao");
             
             /*
-               int numeroMatricula =  Integer.parseInt(request.getParameter("numeromatricula"));
-            String situacao = request.getParameter("situacao");
-            */
-               int numeroMatricula =  231233;
+            int numeroMatricula =  231233;
             String situacao = "A";
+            */
+               
          
             
             Docente oDocente = new Docente(idDocente, numeroMatricula, situacao, idPessoa, nomePessoa, contato);
